@@ -137,7 +137,7 @@ public partial class SettingsWindow : Window
         _aiService.ApiUrl = config.ApiUrl;
         _aiService.ApiKey = config.ApiKey;
 
-        MessageBox.Show("配置已保存", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+        System.Windows.MessageBox.Show("配置已保存", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
     protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

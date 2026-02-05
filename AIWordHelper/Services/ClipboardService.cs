@@ -17,7 +17,7 @@ public class ClipboardService
         string? originalClipboard = null;
         string? selectedText = null;
 
-        await Application.Current.Dispatcher.InvokeAsync(() =>
+        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
         {
             try
             {
@@ -45,7 +45,7 @@ public class ClipboardService
         // Wait for clipboard to be updated
         await Task.Delay(100);
 
-        await Application.Current.Dispatcher.InvokeAsync(() =>
+        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
         {
             try
             {
