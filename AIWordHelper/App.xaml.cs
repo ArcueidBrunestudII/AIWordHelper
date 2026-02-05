@@ -1,9 +1,10 @@
-using System.Drawing;
 using System.Windows;
 using System.Windows.Threading;
 using AIWordHelper.Services;
 using AIWordHelper.Views;
 using Forms = System.Windows.Forms;
+using DrawingIcon = System.Drawing.Icon;
+using DrawingSystemIcons = System.Drawing.SystemIcons;
 
 namespace AIWordHelper;
 
@@ -61,11 +62,11 @@ public partial class App : Application
             var iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "tray_icon.ico");
             if (System.IO.File.Exists(iconPath))
             {
-                _notifyIcon.Icon = new Icon(iconPath);
+                _notifyIcon.Icon = new DrawingIcon(iconPath);
             }
             else
             {
-                _notifyIcon.Icon = SystemIcons.Application;
+                _notifyIcon.Icon = DrawingSystemIcons.Application;
             }
         }
         catch

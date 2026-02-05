@@ -11,7 +11,7 @@ public partial class AIResponseWindow : Window
     private readonly string _prompt;
     private CancellationTokenSource? _cts;
 
-    public AIResponseWindow(AIService aiService, string model, string prompt, Point position)
+    public AIResponseWindow(AIService aiService, string model, string prompt, System.Windows.Point position)
     {
         InitializeComponent();
         _aiService = aiService;

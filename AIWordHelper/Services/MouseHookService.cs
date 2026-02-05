@@ -1,5 +1,4 @@
 using System.Runtime.InteropServices;
-using System.Windows;
 
 namespace AIWordHelper.Services;
 
@@ -43,10 +42,10 @@ public class MouseHookService : IDisposable
 
     private IntPtr _hookId = IntPtr.Zero;
     private readonly LowLevelMouseProc _proc;
-    private Point _mouseDownPos;
+    private System.Windows.Point _mouseDownPos;
     private bool _isMouseDown;
 
-    public event Action<Point>? OnSelectionComplete;
+    public event Action<System.Windows.Point>? OnSelectionComplete;
 
     public bool IsEnabled { get; set; } = true;
 
@@ -81,13 +80,13 @@ public class MouseHookService : IDisposable
 
             if (wParam == WM_LBUTTONDOWN)
             {
-                _mouseDownPos = new Point(hookStruct.pt.x, hookStruct.pt.y);
+                _mouseDownPos = new System.Windows.Point(hookStruct.pt.x, hookStruct.pt.y);
                 _isMouseDown = true;
             }
             else if (wParam == WM_LBUTTONUP && _isMouseDown)
             {
                 _isMouseDown = false;
-                var mouseUpPos = new Point(hookStruct.pt.x, hookStruct.pt.y);
+                var mouseUpPos = new System.Windows.Point(hookStruct.pt.x, hookStruct.pt.y);
 
                 // Only trigger if mouse moved (indicating selection)
                 var distance = Math.Sqrt(
