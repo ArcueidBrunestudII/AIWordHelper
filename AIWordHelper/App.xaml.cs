@@ -5,10 +5,11 @@ using AIWordHelper.Views;
 using Forms = System.Windows.Forms;
 using DrawingIcon = System.Drawing.Icon;
 using DrawingSystemIcons = System.Drawing.SystemIcons;
+using WpfApplication = System.Windows.Application;
 
 namespace AIWordHelper;
 
-public partial class App : Application
+public partial class App : WpfApplication
 {
     private Forms.NotifyIcon? _notifyIcon;
     private ConfigService _configService = null!;
