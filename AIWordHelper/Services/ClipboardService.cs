@@ -22,13 +22,13 @@ public class ClipboardService
             try
             {
                 // Save original clipboard
-                if (Clipboard.ContainsText())
+                if (System.Windows.Clipboard.ContainsText())
                 {
-                    originalClipboard = Clipboard.GetText();
+                    originalClipboard = System.Windows.Clipboard.GetText();
                 }
 
                 // Clear clipboard
-                Clipboard.Clear();
+                System.Windows.Clipboard.Clear();
             }
             catch { }
         });
@@ -50,15 +50,15 @@ public class ClipboardService
             try
             {
                 // Get selected text
-                if (Clipboard.ContainsText())
+                if (System.Windows.Clipboard.ContainsText())
                 {
-                    selectedText = Clipboard.GetText();
+                    selectedText = System.Windows.Clipboard.GetText();
                 }
 
                 // Restore original clipboard
                 if (originalClipboard != null)
                 {
-                    Clipboard.SetText(originalClipboard);
+                    System.Windows.Clipboard.SetText(originalClipboard);
                 }
             }
             catch { }
